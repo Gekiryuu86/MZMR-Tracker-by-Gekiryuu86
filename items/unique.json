@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Morph Ball",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/morphball.png",
+    "codes": "morph"
+  },
+  {
+    "name": "Bomb",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/bomb.png",
+    "codes": "bomb"
+  },
+  {
+    "name": "Varia Suit",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/variasuit.png",
+    "codes": "varia"
+  },
+  {
+    "name": "Gravity Suit",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/gravitysuit_unknown.png",
+    "codes": "gravity"
+  },
+  {
+    "name": "Long Beam",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/longbeam.png",
+    "codes": "long"
+  },
+  {
+    "name": "Charge Beam",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/chargebeam.png",
+    "codes": "charge"
+  },
+  {
+    "name": "Ice Beam",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/icebeam.png",
+    "codes": "ice"
+  },
+  {
+    "name": "Wave Beam",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/wavebeam.png",
+    "codes": "wave"
+  },
+  {
+    "name": "Plasma Beam",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/plasmabeam_unknown.png",
+    "codes": "plasma"
+  },
+  {
+    "name": "Power Grip",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/powergrip.png",
+    "codes": "grip"
+  },
+  {
+    "name": "High Jump",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/hijump.png",
+    "codes": "hijump"
+  },
+  {
+    "name": "Speed Booster",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/speedboost.png",
+    "codes": "speed"
+  },
+  {
+    "name": "Screw Attack",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/screwattack.png",
+    "codes": "screw"
+  },
+  {
+    "name": "Space Jump",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/spacejump_unknown.png",
+    "codes": "space"
+  },
+  {
+    "name": "Acid Worm",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/acidworm.png",
+    "codes": "acidworm"
+  },
+  {
+    "name": "Kraid",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/kraid.png",
+    "codes": "kraid"
+  },
+  {
+    "name": "Ridley",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/ridley.png",
+    "codes": "ridley"
+  },
+  {
+    "name": "Chozo Guardian",
+    "type": "toggle",
+    "loop": "true",
+    "img": "images/charlie.png",
+    "codes": "charlie"
+  }
+]

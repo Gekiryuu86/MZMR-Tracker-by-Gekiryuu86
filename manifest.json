@@ -1,0 +1,15 @@
+﻿{
+  "name": "MZMR Tracker",
+  "game_name": "Metroid Zero Mission Randomizer",
+  "package_version": "1.0.0.0",
+  "package_uid": "mzmr_tracker_gekiryuu86",
+  "author": "Gekiryuu86",
+  "variants": {
+    "standard": {
+      "display_name": "Normal Difficulty"
+    },
+    "v_hard": {
+      "display_name": "Hard Difficulty"
+    }
+  }
+}
