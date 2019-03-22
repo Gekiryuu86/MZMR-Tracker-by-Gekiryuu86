@@ -96,33 +96,5 @@
     "loop": "true",
     "img": "images/spacejump_unknown.png",
     "codes": "space"
-  },
-  {
-    "name": "Acid Worm",
-    "type": "toggle",
-    "loop": "true",
-    "img": "images/acidworm.png",
-    "codes": "acidworm"
-  },
-  {
-    "name": "Kraid",
-    "type": "toggle",
-    "loop": "true",
-    "img": "images/kraid.png",
-    "codes": "kraid"
-  },
-  {
-    "name": "Ridley",
-    "type": "toggle",
-    "loop": "true",
-    "img": "images/ridley.png",
-    "codes": "ridley"
-  },
-  {
-    "name": "Chozo Guardian",
-    "type": "toggle",
-    "loop": "true",
-    "img": "images/charlie.png",
-    "codes": "charlie"
   }
 ]

@@ -1,0 +1,21 @@
+{
+  "layout_default_bingo": {
+    "type": "itemgrid",
+    "item_margin": "10,0,10,20",
+    "item_size": 68,
+    "scale": 0.75,
+    "rows": [
+            [ "bingo1", "bingo2", "bingo3", "bingo4" ]
+    ]
+  },
+  
+  "layout_broadcast_bingo": {
+    "type": "itemgrid",
+    "item_margin": "10,0,10,20",
+    "item_size": 68,
+    "scale": 0.75,
+    "rows": [
+            [ "bingo1", "bingo2", "bingo3", "bingo4" ]
+    ]
+  }
+}

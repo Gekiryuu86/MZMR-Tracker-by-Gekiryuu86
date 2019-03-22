@@ -1,0 +1,221 @@
+[
+  {
+    "name": "Bingo1",
+    "type": "progressive_toggle",
+    "loop": "true",
+    "stages": [
+      {
+        "img": "images/variasuit.png",
+        "codes": "bingo1"
+      },
+      {
+        "img": "images/gravitysuit_unknown.png",
+      },
+      {
+        "img": "images/longbeam.png",
+      },
+      {
+        "img": "images/chargebeam.png",
+      },
+      {
+        "img": "images/icebeam.png",
+      },
+      {
+        "img": "images/wavebeam.png",
+      },
+      {
+        "img": "images/powergrip.png",
+      },
+      {
+        "img": "images/hijump.png",
+      },
+      {
+        "img": "images/speedboost.png",
+      },
+      {
+        "img": "images/screwattack.png",
+      },
+      {
+        "img": "images/spacejump_unknown.png",
+      }
+    ]
+  },
+  {
+    "name": "Bingo2",
+    "type": "progressive_toggle",
+    "loop": "true",
+    "stages": [
+      {
+        "img": "images/gravitysuit_unknown.png",
+        "codes": "bingo1"
+      },
+      {
+        "img": "images/bomb.png",
+      }
+    ]
+  },
+  {
+    "name": "Bingo2",
+    "type": "progressive_toggle",
+    "loop": "true",
+    "stages": [
+      {
+        "img": "images/variasuit.png",
+        "codes": "bingo2"
+      },
+      {
+        "img": "images/gravitysuit_unknown.png",
+      },
+      {
+        "img": "images/longbeam.png",
+      },
+      {
+        "img": "images/chargebeam.png",
+      },
+      {
+        "img": "images/icebeam.png",
+      },
+      {
+        "img": "images/wavebeam.png",
+      },
+      {
+        "img": "images/powergrip.png",
+      },
+      {
+        "img": "images/hijump.png",
+      },
+      {
+        "img": "images/speedboost.png",
+      },
+      {
+        "img": "images/screwattack.png",
+      },
+      {
+        "img": "images/spacejump_unknown.png",
+      }
+    ]
+  },
+  {
+    "name": "Bingo3",
+    "type": "progressive_toggle",
+    "loop": "true",
+    "stages": [
+      {
+        "img": "images/variasuit.png",
+        "codes": "bingo3"
+      },
+      {
+        "img": "images/gravitysuit_unknown.png",
+      },
+      {
+        "img": "images/longbeam.png",
+      },
+      {
+        "img": "images/chargebeam.png",
+      },
+      {
+        "img": "images/icebeam.png",
+      },
+      {
+        "img": "images/wavebeam.png",
+      },
+      {
+        "img": "images/powergrip.png",
+      },
+      {
+        "img": "images/hijump.png",
+      },
+      {
+        "img": "images/speedboost.png",
+      },
+      {
+        "img": "images/screwattack.png",
+      },
+      {
+        "img": "images/spacejump_unknown.png",
+      }
+    ]
+  },
+  {
+    "name": "Bingo4",
+    "type": "progressive_toggle",
+    "loop": "true",
+    "stages": [
+      {
+        "img": "images/variasuit.png",
+        "codes": "bingo4"
+      },
+      {
+        "img": "images/gravitysuit_unknown.png",
+      },
+      {
+        "img": "images/longbeam.png",
+      },
+      {
+        "img": "images/chargebeam.png",
+      },
+      {
+        "img": "images/icebeam.png",
+      },
+      {
+        "img": "images/wavebeam.png",
+      },
+      {
+        "img": "images/powergrip.png",
+      },
+      {
+        "img": "images/hijump.png",
+      },
+      {
+        "img": "images/speedboost.png",
+      },
+      {
+        "img": "images/screwattack.png",
+      },
+      {
+        "img": "images/spacejump_unknown.png",
+      }
+    ]
+  },
+  {
+    "name": "Bingo5",
+    "type": "progressive_toggle",
+    "loop": "true",
+    "stages": [
+      {
+        "img": "images/variasuit.png",
+        "codes": "bingo5"
+      },
+      {
+        "img": "images/gravitysuit_unknown.png",
+      },
+      {
+        "img": "images/longbeam.png",
+      },
+      {
+        "img": "images/chargebeam.png",
+      },
+      {
+        "img": "images/icebeam.png",
+      },
+      {
+        "img": "images/wavebeam.png",
+      },
+      {
+        "img": "images/powergrip.png",
+      },
+      {
+        "img": "images/hijump.png",
+      },
+      {
+        "img": "images/speedboost.png",
+      },
+      {
+        "img": "images/screwattack.png",
+      },
+      {
+        "img": "images/spacejump_unknown.png",
+      }
+    ]
+  }
+]

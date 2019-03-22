@@ -1,0 +1,58 @@
+﻿{
+  "tracker_default": {
+    "type": "layout",
+    "type": "array",
+    "h_alignment": "left",
+    "v_alignment": "top",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "layout",
+        "key": "layout_default_bingo"
+      },
+      {
+        "type": "array",
+        "orientation": "horizontal",
+        "content": [
+          {
+            "type": "layout",
+            "key": "layout_default_items"
+          },
+          {
+            "type": "layout",
+            "key": "layout_default_bosses"
+          }
+        ]
+      }
+    ]
+  },
+  
+  "tracker_broadcast": {
+    "type": "layout",
+    "dropshadow": "true",
+    "type": "array",
+    "h_alignment": "left",
+    "v_alignment": "top",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "layout",
+        "key": "layout_broadcast_bingo"
+      },
+      {
+        "type": "array",
+        "orientation": "horizontal",
+        "content": [
+          {
+            "type": "layout",
+            "key": "layout_broadcast_items"
+          },
+          {
+            "type": "layout",
+            "key": "layout_broadcast_bosses"
+          }
+        ]
+      }
+    ]
+  }
+}

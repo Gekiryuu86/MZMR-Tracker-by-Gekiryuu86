@@ -1,39 +1,34 @@
 ﻿{
   "tracker_default": {
-    "type": "container",
+    "type": "layout",
+    "type": "array",
+    "orientation": "horizontal",
+    "content": [
+      {
+        "type": "layout",
+        "key": "layout_default_items"
+      },
+      {
+        "type": "layout",
+        "key": "layout_default_bosses"
+      }
+    ]
+  },
+  
+  "tracker_broadcast": {
+    "type": "layout",
     "dropshadow": "true",
-    "margin": 10,
-    "h_alignment": "center",
-    "v_alignment": "center",
-    "content": {
-      "type": "array",
-      "orientation": "horizontal",
-      "content": [
-        {
-          "type": "itemgrid",
-          "item_margin": "0,2,4,2",
-          "item_size": 68,
-          "badge_font_size": 24,
-          "rows": [
-            [ "etank",    "missile",        "supermissile",        "powerbomb"        ],
-            [ "morph",    "bomb",           "varia",               "gravity"          ],
-            [ "long",     "charge",         "ice",                 "wave",            "plasma"  ],
-            [ "grip",     "hijump",         "speed",               "screw",           "space"   ]
-          ]
-        },
-        {
-          "type": "itemgrid",
-          "item_margin": "12,2,0,2",
-          "item_size": 68,
-          "badge_font_size": 24,
-          "rows": [
-            [ "acidworm" ],
-            [ "kraid" ],
-            [ "ridley" ],
-            [ "charlie" ]
-          ]
-        }
-      ]
-    }
+    "type": "array",
+    "orientation": "horizontal",
+    "content": [
+      {
+        "type": "layout",
+        "key": "layout_broadcast_items"
+      },
+      {
+        "type": "layout",
+        "key": "layout_broadcast_bosses"
+      }
+    ]
   }
 }

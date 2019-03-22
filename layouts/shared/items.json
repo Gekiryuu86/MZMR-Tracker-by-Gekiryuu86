@@ -1,0 +1,27 @@
+{
+  "layout_default_items": {
+    "type": "itemgrid",
+    "item_margin": "0,2,4,2",
+    "item_size": 68,
+    "badge_font_size": 24,
+    "rows": [
+            [ "etank",    "missile",        "supermissile",        "powerbomb"        ],
+            [ "morph",    "bomb",           "varia",               "gravity"          ],
+            [ "long",     "charge",         "ice",                 "wave",            "plasma"  ],
+            [ "grip",     "hijump",         "speed",               "screw",           "space"   ]
+    ]
+  },
+  
+  "layout_broadcast_items": {
+    "type": "itemgrid",
+    "item_margin": "0,2,4,2",
+    "item_size": 68,
+    "badge_font_size": 24,
+    "rows": [
+            [ "etank",    "missile",        "supermissile",        "powerbomb"        ],
+            [ "morph",    "bomb",           "varia",               "gravity"          ],
+            [ "long",     "charge",         "ice",                 "wave",            "plasma"  ],
+            [ "grip",     "hijump",         "speed",               "screw",           "space"   ]
+    ]
+  },
+}
