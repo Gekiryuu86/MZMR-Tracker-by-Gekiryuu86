@@ -1,0 +1,16 @@
+{
+  "layout_shared": {
+    "type": "array",
+    "orientation": "horizontal",
+    "content": [
+      {
+        "type": "layout",
+        "key": "layout_default_items"
+      },
+      {
+        "type": "layout",
+        "key": "layout_default_bosses"
+      }
+    ]
+  }
+}

@@ -1,34 +1,22 @@
 ﻿{
   "tracker_default": {
-    "type": "layout",
-    "type": "array",
-    "orientation": "horizontal",
-    "content": [
-      {
-        "type": "layout",
-        "key": "layout_default_items"
-      },
-      {
-        "type": "layout",
-        "key": "layout_default_bosses"
-      }
-    ]
+    "type": "container",
+    "width": 465,
+    "background": "#212121",
+    "content": {
+      "dropshadow": true,
+      "type": "layout",
+      "key": "layout_shared"
+    }
   },
   
   "tracker_broadcast": {
-    "type": "layout",
-    "dropshadow": "true",
-    "type": "array",
-    "orientation": "horizontal",
-    "content": [
-      {
-        "type": "layout",
-        "key": "layout_broadcast_items"
-      },
-      {
-        "type": "layout",
-        "key": "layout_broadcast_bosses"
-      }
-    ]
+    "type": "container",
+    "width": 465,
+    "content": {
+      "dropshadow": true,
+      "type": "layout",
+      "key": "layout_shared"
+    }
   }
 }

@@ -12,7 +12,9 @@ Tracker:AddLayouts("layouts/shared/items.json")
 Tracker:AddLayouts("layouts/shared/bosses.json")
 
 if (string.find(Tracker.ActiveVariantUID, "bingo")) then
-    Tracker:AddLayouts("layouts/tracker_bingo.json")
+    Tracker:AddLayouts("layouts/shared/layout_bingo.json")
   else
-    Tracker:AddLayouts("layouts/tracker.json")
+    Tracker:AddLayouts("layouts/shared/layout_default.json")
 end
+
+Tracker:AddLayouts("layouts/tracker.json")
