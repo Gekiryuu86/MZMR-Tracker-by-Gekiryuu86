@@ -1,15 +1,15 @@
 ﻿{
-  "name": "MZMR Tracker",
-  "game_name": "Metroid Zero Mission Randomizer",
+  "name": "MZMR Tracker for EmoTracker",
+  "game_name": "Metroid: Zero Mission Randomizer",
   "package_version": "1.0.0.0",
   "package_uid": "mzmr_tracker_gekiryuu86",
   "author": "Gekiryuu86",
   "variants": {
     "v_normal": {
-      "display_name": "Normal"
+      "display_name": "Normal Difficulty"
     },
     "v_hard": {
-      "display_name": "Hard"
+      "display_name": "Hard Difficulty"
     },
     "v_normal-bingo": {
       "display_name": "Normal + Bingo"
