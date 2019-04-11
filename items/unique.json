@@ -74,7 +74,7 @@
     "type": "toggle",
     "loop": "true",
     "img": "images/hijump.png",
-    "codes": "hijump"
+    "codes": "hijump, highjump"
   },
   {
     "name": "Speed Booster",

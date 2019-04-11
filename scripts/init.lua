@@ -10,11 +10,12 @@ end
 Tracker:AddLayouts("layouts/shared/bingo.json")
 Tracker:AddLayouts("layouts/shared/items.json")
 Tracker:AddLayouts("layouts/shared/bosses.json")
-
-if (string.find(Tracker.ActiveVariantUID, "bingo")) then
-    Tracker:AddLayouts("layouts/shared/layout_bingo.json")
-  else
-    Tracker:AddLayouts("layouts/shared/layout_default.json")
-end
+Tracker:AddLayouts("layouts/shared/layout_default.json")
 
 Tracker:AddLayouts("layouts/tracker.json")
+
+if _VERSION == "Lua 5.3" then
+    ScriptHost:LoadScript("scripts/autotracking.lua")
+else    
+    print("Auto-tracker is unsupported by your tracker version")
+end

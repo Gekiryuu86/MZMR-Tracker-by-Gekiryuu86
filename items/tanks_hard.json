@@ -20,7 +20,7 @@
     "img": "images/supermissile.png",
     "max_quantity": 15,
     "increment": 1,
-    "codes": "supermissile"
+    "codes": "supermissile, super"
   },
   {
     "name": "Power Bomb Capacity",

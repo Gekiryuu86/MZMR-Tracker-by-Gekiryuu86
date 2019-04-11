@@ -10,12 +10,6 @@
     },
     "v_hard": {
       "display_name": "Hard Difficulty"
-    }//,
-//    "v_normal-bingo": {
-//      "display_name": "Normal + Bingo"
-//    },
-//    "v_hard-bingo": {
-//      "display_name": "Hard + Bingo"
-//    }
+    }
   }
 }
