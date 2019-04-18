@@ -10,53 +10,52 @@ if (DEV_DEBUG) then
   file:write("Settings Loaded")
 end
 
+-------------------------------------------------------
+-- Memory Locations
+-------------------------------------------------------
+
+local ADDRESS_DIFFICULTY = 0x0300002C -- values of this byte can be 0 (easy), 1 (medium), 2 (hard)
+
+-- the array index is the item name for the tracker (etanks require calculation, so they're special)
+-- address := memory address of the items' max value
+-- length := number of bytes the value is stored in
+DATA_TANKS["health"]  = { address = 0x03001530 , length = 2 }
+DATA_TANKS["missile"] = { address = 0x03001532 , length = 2 }
+DATA_TANKS["super"]   = { address = 0x03001534 , length = 1 }
+DATA_TANKS["pb"]      = { address = 0x03001535 , length = 1 }
+
+ADDRESS_BEAMS_BOMB = 0x0300153C
+-- flag := the bit that determines if you have an item or not
+DATA_BEAMS_BOMB["long"]   = { flag = 0x01 }
+DATA_BEAMS_BOMB["ice"]    = { flag = 0x02 }
+DATA_BEAMS_BOMB["wave"]   = { flag = 0x04 }
+DATA_BEAMS_BOMB["plasma"] = { flag = 0x08 }
+DATA_BEAMS_BOMB["charge"] = { flag = 0x10 }
+DATA_BEAMS_BOMB["bomb"]   = { flag = 0x80 }
+
+ADDRESS_ABILITIES = 0x0300153E -- this is separate in order to use the existing memory read functions
+DATA_ABILITIES["hijump"]  = { flag = 0x01 }
+DATA_ABILITIES["speed"]   = { flag = 0x02 }
+DATA_ABILITIES["space"]   = { flag = 0x04 }
+DATA_ABILITIES["screw"]   = { flag = 0x08 }
+DATA_ABILITIES["varia"]   = { flag = 0x10 }
+DATA_ABILITIES["gravity"] = { flag = 0x20 }
+DATA_ABILITIES["morph"]   = { flag = 0x40 }
+DATA_ABILITIES["grip"]    = { flag = 0x80 }
+
 function autotracker_started()
-  if (DEV_DEBUG) then
-    file:write("Autotracker Started")
-  end
-    -- Invoked when the auto-tracker is activated/connected
-end
+  -- Invoked when the auto-tracker is activated/connected
+end -- autotracker_started()
+
+-------------------------------------------------------
+-- Helper Functions
+-------------------------------------------------------
 
 U8_READ_CACHE = 0
 U8_READ_CACHE_ADDRESS = 0
 
 U16_READ_CACHE = 0
 U16_READ_CACHE_ADDRESS = 0
-
-FLAG_DIFFICULTY = 0x0300002C -- values of this byte can be 0 (easy), 1 (medium), 2 (hard)
-
--- SEGMENT_BASE is the location of all flags and values we'll be looking at. The segment is 15 bytes long with some useless data in between.
-SEGMENT_BASE = 0x03001530
-
--- offsets for specific values/flags
-OFFSET_MAX_HEALTH     = SEGMENT_BASE + 0x00
-OFFSET_MAX_MISSILES   = SEGMENT_BASE + 0x02
-OFFSET_MAX_SUPERS     = SEGMENT_BASE + 0x04
-OFFSET_MAX_POWER_BOMB = SEGMENT_BASE + 0x05
-OFFSET_BEAM_BOMB      = SEGMENT_BASE + 0x0C
-OFFSET_UNIQUE_ITEMS   = SEGMENT_BASE + 0x0E
-
--- flags from the byte OFFSET_BEAM_BOMB
-FLAG_LONG             = 0x1
-FLAG_ICE              = 0x2
-FLAG_WAVE             = 0x4
-FLAG_PLASMA           = 0x8
-FLAG_CHARGE           = 0x10
-FLAG_BOMBS            = 0x80
-
--- flags from the byte OFFSET_UNIQUE_ITEMS
-FLAG_JUMP             = 0x1
-FLAG_SPEED            = 0x2
-FLAG_SPACE            = 0x4
-FLAG_SCREW            = 0x8
-FLAG_VARIA            = 0x10
-FLAG_GRAVITY          = 0x20
-FLAG_MORPH            = 0x40
-FLAG_POWER            = 0x80
-
-if (DEV_DEBUG) then
-  file:write("Variables initialized")
-end
 
 function InvalidateReadCaches()
   U8_READ_CACHE_ADDRESS = 0
@@ -83,14 +82,21 @@ function ReadU16(segment, address)
   return U16_READ_CACHE
 end -- ReadU16(segment, address)
 
--- update a tracker item directly with the byte value at address
-function updateProgressiveItemFromByte(segment, code, address, offset)
+-- update a tracker item directly with the U16 value at address
+function updateProgressiveItem(segment, code, address, bytes, offset)
   local item = Tracker:FindObjectForCode(code)
-  if item then
-    local value = ReadU8(segment, address)
-    item.CurrentStage = value + (offset or 0)
+  if (bytes == 1) then
+    if item then
+      local value = ReadU8(segment, address)
+      item.CurrentStage = value + (offset or 0)
+    end
+  elseif (bytes == 2) then
+    if item then
+      local value = ReadU16(segment, address)
+      item.CurrentStage = value + (offset or 0)
+    end
   end
-end -- updateProgressiveItemFromByte(segment, code, address, offset)
+end -- updateProgressiveItem(segment, code, address, bytes, offset)
 
 -- toggle a tracker item based on the flag in address
 function updateToggleItemFromByteAndFlag(segment, code, address, flag) 
@@ -109,62 +115,48 @@ function updateToggleItemFromByteAndFlag(segment, code, address, flag)
       item.Active = false
     end
   end
-end -- updateToggleItemFromByteAndFlag(segment, code, address, flag) 
+end -- updateToggleItemFromByteAndFlag(segment, code, address, flag)
 
-if (DEV_DEBUG) then
-  file:write("Functions Defined")
-end
+-------------------------------------------------------
+-- Main Functions
+-------------------------------------------------------
 
--- where all the work is done
-function updateItemsFromMemorySegment(segment)
+function updateTanksFromMemorySegment(segment)
+  InvalidateReadCaches()
+  
+  local difficulty = ReadU8(segment, ADDRESS_DIFFICULTY)
 
+  for itemName, value in pairs(DATA_TANKS)
+  if itemName == "health" then
+    local itemTracker = Tracker:FindObjectForCode("etank")
+    if itemTracker then
+      local etanks = ( ReadUInt16(segment, value.address) - 99) / (difficulty == 2 and 50 or 100)
+      itemTracker.CurrentStage = etanks
+    end
+  else
+    updateProgressiveItem(segment, itemName, value.address, value.length, 0)
+  end
+end -- updateTanksFromMemorySegment(segment)
+
+function updateBeamsFromMemorySegment(segment)
   InvalidateReadCaches()
 
-  if (segment == SEGMENT_BASE) then
-    local flagDifficulty = ReadU8(FLAG_DIFFICULTY, 0)
-
-    local etank = Tracker:FindObjectForCode("etank")
-    if etank then
-      local maxEtanks = (ReadU16(OFFSET_MAX_HEALTH, 0) - 99) / (flagDifficulty == 2 and 50 or 100)
-      etank.CurrentStage = maxEtanks
-    end
-    updateProgressiveItemFromByte(segment, "missile",   OFFSET_MAX_MISSILES, 0)
-    updateProgressiveItemFromByte(segment, "super",     OFFSET_MAX_SUPERS, 0)
-    updateProgressiveItemFromByte(segment, "powerbomb", OFFSET_MAX_POWER_BOMB, 0)
+  for itemName, value in pairs(DATA_BEAMS_BOMB)
+    updateToggleItemFromByteAndFlag(segment, itemName, ADDRESS_BEAMS_BOMB, value.flag)
   end
+end -- updateBeamsFromMemorySegment(segment)
 
-  if (segment == SEGMENT_BEAM_BOMB) then
-    updateToggleItemFromByteAndFlag(segment, "long",    SEGMENT_BEAM_BOMB, FLAG_LONG    )
-    updateToggleItemFromByteAndFlag(segment, "ice",     SEGMENT_BEAM_BOMB, FLAG_ICE     )
-    updateToggleItemFromByteAndFlag(segment, "wave",    SEGMENT_BEAM_BOMB, FLAG_WAVE    )
-    updateToggleItemFromByteAndFlag(segment, "plasma",  SEGMENT_BEAM_BOMB, FLAG_PLASMA  )
-    updateToggleItemFromByteAndFlag(segment, "charge",  SEGMENT_BEAM_BOMB, FLAG_CHARGE  )
-    updateToggleItemFromByteAndFlag(segment, "bomb",    SEGMENT_BEAM_BOMB, FLAG_BOMB    )
+function updateAbilitiesFromMemorySegment(segment)
+  InvalidateReadCaches()
+
+  for itemName, value in pairs(DATA_ABILITIES)
+    updateToggleItemFromByteAndFlag(segment, itemName, ADDRESS_ABILITIES, value.flag)
   end
-
-  if (segment == SEGMENT_SUIT) then
-    updateToggleItemFromByteAndFlag(segment, "jump",    SEGMENT_SUIT, FLAG_JUMP    )
-    updateToggleItemFromByteAndFlag(segment, "speed",   SEGMENT_SUIT, FLAG_SPEED   )
-    updateToggleItemFromByteAndFlag(segment, "space",   SEGMENT_SUIT, FLAG_SPACE   )
-    updateToggleItemFromByteAndFlag(segment, "screw",   SEGMENT_SUIT, FLAG_SCREW   )
-    updateToggleItemFromByteAndFlag(segment, "varia",   SEGMENT_SUIT, FLAG_VARIA   )
-    updateToggleItemFromByteAndFlag(segment, "gravity", SEGMENT_SUIT, FLAG_GRAVITY )
-    updateToggleItemFromByteAndFlag(segment, "morph",   SEGMENT_SUIT, FLAG_MORPH   )
-    updateToggleItemFromByteAndFlag(segment, "grip",    SEGMENT_SUIT, FLAG_GRIP    )
-  end
-end -- updateItemsFromMemorySegment(segment)
-
-if (DEV_DEBUG) then
-  file:write("Main Function Defined")
-end
+end -- updateAbilitiesFromMemorySegment(segment)
 
 -- These are what keep the script running
-ScriptHost:AddMemoryWatch("MZM Tank Data",        SEGMENT_BASE,        5, updateItemsFromMemorySegment)
-ScriptHost:AddMemoryWatch("MZM Beam-Bomb Data",   OFFSET_BEAM_BOMB,    1, updateItemsFromMemorySegment)
-ScriptHost:AddMemoryWatch("MZM Unique Item Data", OFFSET_UNIQUE_ITEMS, 1, updateItemsFromMemorySegment)
-
-if (DEV_DEBUG) then
-  file:write("Memory watches added")
-end
+ScriptHost:AddMemoryWatch("MZM Tank Data",        DATA_TANKS["health"].address, 5, updateTanksFromMemorySegment)
+ScriptHost:AddMemoryWatch("MZM Beam-Bomb Data",   ADDRESS_BEAMS_BOMB,           2, updateBeamsFromMemorySegment)
+ScriptHost:AddMemoryWatch("MZM Unique Item Data", ADDRESS_ABILITIES,            2, updateAbilitiesFromMemorySegment)
 
 file:close()

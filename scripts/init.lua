@@ -14,8 +14,4 @@ Tracker:AddLayouts("layouts/shared/layout_default.json")
 
 Tracker:AddLayouts("layouts/tracker.json")
 
-if _VERSION == "Lua 5.3" then
-    ScriptHost:LoadScript("scripts/autotracking.lua")
-else    
-    print("Auto-tracker is unsupported by your tracker version")
-end
+ScriptHost:LoadScript("scripts/autotracking.lua")
