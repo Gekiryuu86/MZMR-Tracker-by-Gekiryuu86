@@ -1,22 +1,20 @@
 ﻿{
   "tracker_default": {
     "type": "container",
-    "width": 465,
+    "width": 388,
     "background": "#212121",
     "content": {
-      "dropshadow": true,
       "type": "layout",
-      "key": "layout_shared"
+      "key": "shared_array"
     }
   },
   
   "tracker_broadcast": {
     "type": "container",
-    "width": 465,
+    "width": 388,
     "content": {
-      "dropshadow": true,
       "type": "layout",
-      "key": "layout_shared"
+      "key": "shared_array"
     }
   }
 }

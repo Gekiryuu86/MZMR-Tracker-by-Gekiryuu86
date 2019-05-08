@@ -7,10 +7,7 @@ if (string.find(Tracker.ActiveVariantUID, "hard")) then
     Tracker:AddItems("items/tanks_normal.json")
 end
 
-Tracker:AddLayouts("layouts/shared/items.json")
-Tracker:AddLayouts("layouts/shared/bosses.json")
-Tracker:AddLayouts("layouts/shared/shared_grid.json")
-
+Tracker:AddLayouts("layouts/shared.json")
 Tracker:AddLayouts("layouts/layout.json")
 
 ScriptHost:LoadScript("scripts/autotracking.lua")

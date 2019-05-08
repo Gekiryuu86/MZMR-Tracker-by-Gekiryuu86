@@ -2,14 +2,14 @@
   {
     "name": "Energy Tanks",
     "type": "consumable",
-    "img": "images/energytank.png",
+    "img": "images/item_etank.png",
     "max_quantity": 12,
     "codes": "etank"
   },
   {
     "name": "Missile Capacity",
     "type": "consumable",
-    "img": "images/missile.png",
+    "img": "images/item_missile.png",
     "max_quantity": 100,
     "increment": 2,
     "codes": "missile"
@@ -17,7 +17,7 @@
   {
     "name": "Super Missile Capacity",
     "type": "consumable",
-    "img": "images/supermissile.png",
+    "img": "images/item_super.png",
     "max_quantity": 15,
     "increment": 1,
     "codes": "supermissile, super"
@@ -25,7 +25,7 @@
   {
     "name": "Power Bomb Capacity",
     "type": "consumable",
-    "img": "images/powerbomb.png",
+    "img": "images/item_powerbomb.png",
     "max_quantity": 9,
     "increment": 1,
     "codes": "powerbomb"

@@ -1,0 +1,55 @@
+{
+  "shared_grid_bosses": {
+    "type": "container",
+    "content": {
+      "dropshadow": true,
+      "type": "itemgrid",
+      "item_margin": "2",
+      "item_size": 72,
+      "badge_font_size": 24,
+      "rows": [
+        [ "diorm",    "acidworm", "larvae",       "wasp"      ],
+        [ "kraid",    "ridley",   "motherbrain",  "charlie"   ],
+      ]
+    }
+  },
+  
+  "shared_grid_items": {
+    "type": "container",
+    "content": {
+      "dropshadow": true,
+      "type": "itemgrid",
+      "item_margin": "2",
+      "item_size": 72,
+      "badge_font_size": 24,
+      "rows": [
+        [ "morph",    "bomb",    "varia",        "gravity"   ],
+        [ "long",     "charge",  "ice",          "wave",     "plasma"  ],
+        [ "grip",     "hijump",  "speed",        "screw",    "space"   ],
+        [ "etank",    "missile", "supermissile", "powerbomb" ]
+      ]
+    }
+  },
+  
+  "shared_array": {
+    "type": "array",
+    "orientation": "vertical",
+    "style": "stack",
+    "content": [
+//      {
+//        "type": "container",
+//        "content": {
+//          "type": "layout",
+//          "key": "shared_grid_bosses"
+//        }
+//      },
+      {
+        "type": "container",
+        "content": {
+          "type": "layout",
+          "key": "shared_grid_items"
+        }
+      }
+    ]
+  }
+}
